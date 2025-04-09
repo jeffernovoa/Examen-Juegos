@@ -1,8 +1,5 @@
 def resolver_hanoi(n):
-    """
-    Resuelve el problema de las Torres de Hanoi para 'n' discos.
-    Devuelve una lista de movimientos como tuplas (origen, destino).
-    """
+    from db.database import Session, VectorGuardado  # Importar la sesión y el modelo de la base de datos
     movimientos = []
 
     def hanoi(discos, origen, auxiliar, destino):
@@ -14,4 +11,12 @@ def resolver_hanoi(n):
             hanoi(discos - 1, auxiliar, origen, destino)
 
     hanoi(n, 'A', 'B', 'C')
+
+    # Guardar los movimientos en la base de datos
+    session = Session()
+    vector_guardado = VectorGuardado(juego="hanoi", vector={"n": n, "movimientos": movimientos})
+    session.add(vector_guardado)
+    session.commit()
+    session.close()
+
     return movimientos
