@@ -1,5 +1,5 @@
 def resolver_n_reinas(n):
-    from .nodo_reinas import NodoReinas
+    from juegos.reinas.nodo_reinas import NodoReinas
     soluciones = []
 
     def backtrack(nodo):

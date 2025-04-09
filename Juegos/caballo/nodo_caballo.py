@@ -1,4 +1,4 @@
-from Juegos.base.nodo import Nodo
+from juegos.base.nodo import Nodo
 
 MOVIMIENTOS = [
     (2, 1), (1, 2), (-1, 2), (-2, 1),

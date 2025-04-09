@@ -1,4 +1,4 @@
-from Juegos.base.nodo import Nodo
+from juegos.base.nodo import Nodo
 
 class NodoReinas(Nodo):
     def __init__(self, estado, n, fila=0, padre=None):
